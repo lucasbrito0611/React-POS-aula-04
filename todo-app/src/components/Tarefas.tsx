@@ -1,8 +1,8 @@
-import dados, { TarefaInterface } from "@/data";
+import { Todo } from "@/app/api/page";
 import Tarefa from "@/components/Tarefa";
 
 interface TarefasProps {
-    dados: TarefaInterface[];
+    dados: Todo[];
 }
 
 const Tarefas = ({ dados }: TarefasProps) => {
@@ -11,7 +11,7 @@ const Tarefas = ({ dados }: TarefasProps) => {
             {dados.map((tarefa) => (
                 <Tarefa
                     key={tarefa.id}
-                    titulo={tarefa.title}
+                    titulo={tarefa.todo}
                     concluido={tarefa.completed}
                 />
             ))}

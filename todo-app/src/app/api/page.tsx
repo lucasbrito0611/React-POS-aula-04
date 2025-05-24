@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-interface Todo {
+export interface Todo {
     id: number
     todo: string
     completed: boolean
@@ -17,15 +17,15 @@ export default function TodosPage() {
 
     useEffect(() => {
         const fetchTodos = async () => {
-        try {
-            const response = await axios.get('https://dummyjson.com/todos')
-            setTodos(response.data.todos)
-        } catch (err) {
-            setError('Failed to fetch todos')
-            console.error(err)
-        } finally {
-            setLoading(false)
-        }
+            try {
+                const response = await axios.get('https://dummyjson.com/todos')
+                setTodos(response.data.todos)
+            } catch (err) {
+                setError('Failed to fetch todos')
+                console.error(err)
+            } finally {
+                setLoading(false)
+            }
         }
 
         fetchTodos()
